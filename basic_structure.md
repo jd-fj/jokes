@@ -5,3 +5,8 @@
 # app/routes/ - This is where all your "route modules" will go. Remix uses the files in this directory to create the URL routes for your app based on the name of the files.
 # public/ - This is where your static assets go (images/fonts/etc)
 # remix.config.js - Remix has a handful of configuration options you can set in this file.
+
+AFTER npm run build::
+# You'll have a .cache/ directory (something used internally by Remix), and a.. 
+# build/ directory  (server-side code) and a... 
+# public/build/  (client-side) code.
