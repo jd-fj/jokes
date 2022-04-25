@@ -17,12 +17,12 @@ export default function Index() {
     <div className="container">
       <div className="content">
         <h1>
-          Remix <span>Jokes!</span>
+          Remix <span>~ Jokes ~</span>
         </h1>
         <nav>
           <ul>
             <li>
-              <Link to="jokes">Read Jokes</Link>
+              <Link to="jokes">read some jokes</Link>
             </li>
           </ul>
         </nav>
