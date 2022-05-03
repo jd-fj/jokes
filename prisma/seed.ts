@@ -2,9 +2,18 @@ import { PrismaClient } from "@prisma/client";
 const db = new PrismaClient();
 
 async function seed() {
+  const sidfarkus = await db.user.create({
+    data: {
+      username: "sidfarkus",
+      // this is a hashed version of "twixrox"
+      passwordHash:
+        "$2b$10$K7L1OJ45/4Y2nIvhRVpCe.FSmhDdWoXehVzJptJ/op0lSsvqNu/1u",
+    },
+  });
   await Promise.all(
     getJokes().map((joke) => {
-      return db.joke.create({ data: joke });
+      const data = { jokesterId: sidfarkus.id, ...joke };
+      return db.joke.create({ data });
     })
   );
 }
@@ -25,7 +34,7 @@ function getJokes() {
     },
     {
       name: "Trees",
-      content: `Why are trees?`,
+      content: `Why do trees seem suspicious on sunny days? Dunno, they're just a bit shady.`,
     },
     {
       name: "Skeletons",
@@ -41,7 +50,7 @@ function getJokes() {
     },
     {
       name: "Elevator",
-      content: `This one was too bad. I had to take it out, if even just in a tutorial`,
+      content: `My first time using an elevator was an uplifting experience. The second time let me down.`,
     },
   ];
 }
