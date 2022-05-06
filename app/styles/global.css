@@ -38,7 +38,7 @@ html {
 }
 
 :-moz-focusring {
-  outline: auto;
+  outline: dotted red;
 }
 
 :focus {
@@ -360,3 +360,8 @@ label > [type="radio"] {
   border-radius: 0.25rem;
   padding: 0.5rem 1rem;
 }
+
+/* when an element is in focus, outline it in solid red */
+/* :focus:not(:focus-visible) {
+  outline: 1px solid red;
+} */
