@@ -9,6 +9,7 @@ import {
   useLoaderData,
   useCatch,
   useParams,
+  Form
 } from "@remix-run/react";
 import type { Joke } from "@prisma/client";
 
@@ -96,9 +97,9 @@ export default function JokeRoute() {
     <div>
       <p>Here's your hilarious joke:</p>
       <p>{data.joke.content}</p>
-      <Link to=".">{data.joke.name} Permalink</Link>
+      <Link prefetch="intent" to=".">{data.joke.name} Permalink</Link>
       {data.isOwner ? (
-        <form method="post">
+        <Form method="post">
           <input
             type="hidden"
             name="_method"
@@ -107,7 +108,7 @@ export default function JokeRoute() {
           <button type="submit" className="button">
             Delete
           </button>
-        </form>
+        </Form>
       ) : null}
     </div>
   );

@@ -8,6 +8,7 @@ import {
   useActionData,
   useSearchParams,
   Link,
+  Form
 } from "@remix-run/react";
 
 import { db } from "~/utils/db.server";
@@ -141,7 +142,7 @@ export default function Login() {
     <div className="container">
       <div className="content" data-light="">
         <h1>Login</h1>
-        <form method="post">
+        <Form method="post">
           <input
             type="hidden"
             name="redirectTo"
@@ -245,15 +246,15 @@ export default function Login() {
           <button type="submit" className="button">
             Submit
           </button>
-        </form>
+        </Form>
       </div>
       <div className="links">
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link prefetch="intent" to="/">Home</Link>
           </li>
           <li>
-            <Link to="/jokes">Jokes</Link>
+            <Link prefetch="intent" to="/jokes">Jokes</Link>
           </li>
         </ul>
       </div>
